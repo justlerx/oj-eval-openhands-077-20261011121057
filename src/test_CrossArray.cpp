@@ -86,6 +86,22 @@ int main() {
     int data7[] = {11};
     assert(arr1.InsertArrays(data7, 1) == true);
     assert(arr1.InsertArrays(data7, 1) == true);
+    
+    // Test empty array insertion
+    assert(arr1.InsertArrays(nullptr, 0) == true);
+    assert(arr1.AtArray(5) == nullptr);
+    
+    // Test appending empty array
+    int data8[] = {12, 13};
+    arr1.AppendArrays(data8, 0, 2);  // Append to first array
+    assert(arr1.At(0, 3) == 12);
+    assert(arr1.At(0, 4) == 13);
+    
+    // Append empty array
+    arr1.AppendArrays(nullptr, 0, 0);  // Should not change anything
+    assert(arr1.AtArray(0) != nullptr);
+    assert(arr1.At(0, 4) == 13);  // Last element should still be 13
+    
     std::cout << "Test 10 passed: Edge cases" << std::endl;
 
     std::cout << "All tests passed!" << std::endl;

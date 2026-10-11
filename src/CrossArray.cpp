@@ -78,6 +78,14 @@ bool CrossArray::InsertArrays(const int * Input, int size) {
         return false;
     }
     
+    // Handle empty array case
+    if (size == 0) {
+        arrays[count] = nullptr;
+        sizes[count] = 0;
+        count++;
+        return true;
+    }
+    
     // Allocate memory for the new array
     arrays[count] = new int[size];
     sizes[count] = size;
@@ -93,6 +101,11 @@ bool CrossArray::InsertArrays(const int * Input, int size) {
 }
 
 void CrossArray::AppendArrays(const int * Input, int Line, int size) {
+    // Handle empty input case
+    if (size == 0) {
+        return;
+    }
+    
     // Calculate new size
     int new_size = sizes[Line] + size;
     
