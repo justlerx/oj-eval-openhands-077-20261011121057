@@ -13,8 +13,11 @@ include_directories(src)
 # Source files
 file(GLOB SOURCES "src/*.cpp")
 
-# Create executable
-add_executable(code ${SOURCES})
+# Create main executable
+add_executable(code src/main.cpp src/CrossArray.cpp)
+
+# Create test executable
+add_executable(test_CrossArray src/test_CrossArray.cpp src/CrossArray.cpp)
 
 # Compiler options
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -Wpedantic -Werror")
