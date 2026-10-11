@@ -1,5 +1,4 @@
 #include "CrossArray.hpp"
-#include <cstring>
 
 namespace sjtu {
 
